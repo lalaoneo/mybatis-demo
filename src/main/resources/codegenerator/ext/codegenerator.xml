@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <classPathEntry location="./ext/mysql-connector-java-5.1.46.jar"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/><!-- 是否取消注释 -->
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.174.128:3306/mybatis_demo?characterEncoding=utf8"
+                        userId="root"
+                        password="lalaoneo"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- domain类生成配置 -->
+        <javaModelGenerator targetPackage="com.lori.mybatisdemo.domain"
+                            targetProject="../../java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <!-- 需要的时候再打开 -->
+            <!--<property name="rootClass" value="com.example.common.domain.BaseDomain"/>-->
+        </javaModelGenerator>
+
+        <!-- XXMapper.xml文件生成配置   -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="../../resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- XXMapper.java 文件生成配置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.lori.mybatisdemo.dao" targetProject="../../java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- Table 定义 -->
+        <table tableName="person" domainObjectName="Person"/>
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project default="cc-platform-service-generator" basedir=".">
+    <property name="generated.source.dir" value="${basedir}" />
+
+    <target name="cc-platform-service-generator" description="mybatis-generator">
+        <taskdef name="sysGenerator" classname="org.mybatis.generator.ant.GeneratorAntTask"
+                 classpath="./ext/cc-commons-codegenerator-1.0.0-SNAPSHOT.jar" />
+        <sysGenerator overwrite="true" configfile="./ext/codegenerator.xml" verbose="false" >
+            <propertyset>
+                <propertyref name="generated.source.dir"/>
+            </propertyset>
+        </sysGenerator>
+    </target>
+</project>
