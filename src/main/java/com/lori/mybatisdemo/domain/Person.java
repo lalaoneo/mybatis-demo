@@ -1,5 +1,8 @@
 package com.lori.mybatisdemo.domain;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.Date;
 
 public class Person {
@@ -91,5 +94,10 @@ public class Person {
 
     public void setYn(Integer yn) {
         this.yn = yn;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
