@@ -19,7 +19,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.174.128:3306/mybatis_demo?characterEncoding=utf8"
+                        connectionURL="jdbc:mysql://192.168.174.128:3306/shardingJdbc0?characterEncoding=utf8"
                         userId="root"
                         password="lalaoneo"/>
 
@@ -48,6 +48,6 @@
         </javaClientGenerator>
 
         <!-- Table 定义 -->
-        <table tableName="person" domainObjectName="Person"/>
+        <table tableName="user" domainObjectName="User"/>
     </context>
 </generatorConfiguration>
